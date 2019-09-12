@@ -1,26 +1,142 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#container,
+#water {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/lake.jpg');
+  background-position: center bottom;
+}
+#container::after {
+  position: absolute;
+  top: 10%;
+  left: 2.5%;
+  z-index: -1;
+  content: '';
+  display: block;
+  height: 95%;
+  width: 95%;
+  background: #0f0f0f;
+  filter: blur(30px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#container {
+  position: absolute;
+  top: calc(50% - 206px);
+  left: calc(50% - 275px);
+  height: 412px;
+  width: 550px;
+}
+
+#container #water {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 66%;
+  filter: url('#turbulence');
+  overflow: hidden;
+}
+
+#codepen-link {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/logo.jpg');
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.5;
+  transition: all 0.25s;
+}
+#codepen-link:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 6px #0c0c0c;
+}
+
+.flex li {
+  list-style: none;
+}
+
+.leapLower {
+  background-color: #fff;
+  padding: 20px 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: space-around;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1120px;
 }
 
-.App-link {
-  color: #61dafb;
+.leapLower .lhs {
+  min-width: 150px;
+  max-width: 450px;
+}
+
+.leapLower .lhs .content {
+  background: #000;
+  color: #fff;
+  font-size: 17px;
+  line-height: 35px;
+  padding: 10px 15px;
+}
+
+.leapLower .lhs .content span {
+  color: bisque;
+}
+
+.leapLower .rhs {
+  min-width: 150px;
+  max-width: 450px;
+}
+
+.leapLower .rhs content {
+  background: #fff;
+  color: #000;
+}
+
+.container {
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.overlay {
+  color: #fff;
+  width: 100%;
+  height: auto;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  background-image: url('./bgIntact.png');
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.9;
+  transition: all 0.25s;
+}
+
+.overlay_relative {
+  position: relative !important;
+}
+
+.overlay_content {
+  color: #000;
+  text-align: left;
+}
+
+.gap20 {
+  padding: 30px 0;
+}
+
+.topContent {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 @keyframes App-logo-spin {
